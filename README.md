@@ -4,7 +4,7 @@
 
 ## 📊 À propos de moi
 
-Développeur web passionné spécialisé dans la création d'applications web modernes et performantes. J'aime résoudre des problèmes complexes et apprendre constamment de nouvelles technologies.
+Développeur web passionné spécialisé dans la création d'applications web modernes  
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=TeeBo8&show_icons=true&theme=radical" alt="GitHub Stats" />
