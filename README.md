@@ -1,10 +1,10 @@
-# Bonjour, je suis Thibault Leture 👋
+# Bonjour, je suis Thibault Leture ! 👋
 
 [![Profile Views](https://komarev.com/ghpvc/?username=TeeBo8&color=blue&style=flat)](https://github.com/TeeBo8)
 
 ## 📊 À propos de moi
 
-Développeur web passionné spécialisé dans la création d'applications web modernes  
+Développement de sites vitrines modernes et performants NextJS  
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=TeeBo8&show_icons=true&theme=radical" alt="GitHub Stats" />
