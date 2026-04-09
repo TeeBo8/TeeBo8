@@ -59,12 +59,6 @@
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=TeeBo8&theme=react-dark&hide_border=true&area=true&color=10b981&line=10b981&point=ffffff&bg_color=0d1117" width="100%"/>
 
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=TeeBo8&show_icons=true&count_private=true&theme=react&hide_border=true&bg_color=0d1117&icon_color=10b981&title_color=10b981&text_color=ffffff" height="160"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TeeBo8&layout=compact&count_private=true&theme=react&hide_border=true&bg_color=0d1117&title_color=10b981&text_color=ffffff" height="160"/>
-
-</div>
 
 ---
 
