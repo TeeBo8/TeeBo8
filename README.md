@@ -1,73 +1,91 @@
-# Bonjour, je suis Thibault Leture ! 👋
-
-[![Profile Views](https://komarev.com/ghpvc/?username=TeeBo8&color=blue&style=flat)](https://github.com/TeeBo8)
-
-## 📊 À propos de moi
-
-Développement de sites vitrines modernes et performants NextJS  
-
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=TeeBo8&show_icons=true&theme=radical" alt="GitHub Stats" />
+
+<h1>Thibault Leture · TeeBo8 👋</h1>
+
+<p><strong>Fondateur de <a href="https://www.teebostudio.fr/">TeeboStudio</a> · Développeur Next.js Freelance</strong></p>
+
+<p>
+  Je construis des sites web modernes, rapides et qui convertissent —<br/>
+  pour des freelances, PME et startups qui veulent se démarquer en ligne.
+</p>
+
+<a href="https://www.linkedin.com/in/thibault-leture-5740242a1/" target="_blank">
+  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+</a>
+<a href="https://www.teebostudio.fr/" target="_blank">
+  <img src="https://img.shields.io/badge/TeeboStudio-10b981?style=for-the-badge&logo=vercel&logoColor=white" alt="Site" />
+</a>
+<a href="https://x.com/THIBAUL76280609" target="_blank">
+  <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" />
+</a>
+<a href="https://www.indiehackers.com/Teebostudio" target="_blank">
+  <img src="https://img.shields.io/badge/IndieHackers-0E2439?style=for-the-badge&logo=indiehackers&logoColor=white" alt="IndieHackers" />
+</a>
+<a href="mailto:t.leture@gmail.com">
+  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
+</a>
+
+[![Profile Views](https://komarev.com/ghpvc/?username=TeeBo8&color=10b981&style=flat-square)](https://github.com/TeeBo8)
+
 </div>
 
-## 📱 Contact
+---
 
+## 🚀 Ce que je fais
+
+- **Sites vitrines Next.js** ultra-performants — Lighthouse > 95, Core Web Vitals au vert
+- **Migration WordPress → Next.js** avec gain de vitesse et de conversions immédiat
+- **UI premium** avec animations avancées (Framer Motion) et composants shadcn/ui
+- **Audit web** — SEO, performance, accessibilité
+
+---
+
+## 🛠 Stack
+
+### Framework & Langage
 <div>
-  <a href="https://www.linkedin.com/in/thibault-leture-5740242a1/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="mailto:t.leture@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
-  </a>
-  <a href="https://portfoliothibaultleture.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/Portfolio-1DA1F2?style=for-the-badge&logo=website&logoColor=white" alt="Portfolio" />
-  </a>
-</div>
-
-## 💻 Technologies
-
-### Frontend
-<div>
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
 </div>
 
-### Backend
+### UI & Styles
 <div>
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/shadcn/ui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="shadcn/ui" />
+  <img src="https://img.shields.io/badge/Framer_Motion-EF0081?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
 </div>
 
-### Base de données
+### Backend & Data
 <div>
-  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/Drizzle_ORM-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black" alt="Drizzle ORM" />
   <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/Neon-00E599?style=for-the-badge&logo=neon&logoColor=black" alt="Neon" />
 </div>
 
-### Outils
+### Deploy & Outils
 <div>
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+  <img src="https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm" />
+  <img src="https://img.shields.io/badge/Claude_Code-CC785C?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude Code" />
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-  <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" />
 </div>
 
-## 📈 Statistiques GitHub
+---
+
+## 📊 Stats
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=TeeBo8&theme=radical" alt="GitHub Streak" />
+  <img src="https://github-readme-stats.vercel.app/api?username=TeeBo8&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=TeeBo8&theme=radical&hide_border=true" alt="GitHub Streak" />
 </div>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TeeBo8&layout=compact&theme=radical" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TeeBo8&layout=compact&theme=radical&hide_border=true" alt="Top Languages" />
 </div>
 
-
+---
 
 <div align="center">
-  <i>N'hésitez pas à me contacter pour des collaborations ou des projets intéressants !</i>
+  <strong>Un projet en tête ? <a href="https://www.teebostudio.fr/">Parlons-en →</a></strong>
 </div>
