@@ -84,8 +84,6 @@ Les études de cas sont sur [teebostudio.fr/portfolio](https://teebostudio.fr/po
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=TeeBo8&theme=react-dark&hide_border=true&area=true&color=10b981&line=10b981&point=ffffff&bg_color=0d1117" width="100%" alt="Graphique d'activité GitHub"/>
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/github-snake-dark.svg"/>
   <img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/github-snake.svg" width="100%" alt="Animation : un serpent parcourt le calendrier de contributions"/>
