@@ -107,7 +107,7 @@ Les études de cas détaillées sont sur [teebostudio.fr/portfolio](https://teeb
 
 <div align="center">
 
-Une question sur un de ces dépôts, une mission ou un projet ? [t.leture@gmail.com](mailto:t.leture@gmail.com)
+Une question sur un de ces dépôts, une mission ou un projet ? [t.leture@gmail.com](mailto:t.leture@gmail.com) · [contact@teebostudio.fr](mailto:contact@teebostudio.fr)
 
 <br/>
 
