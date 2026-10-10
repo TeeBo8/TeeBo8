@@ -20,7 +20,7 @@ export const HERO = {
     [
       { icon: "claude", text: "Membre du programme Claude Startups" },
       { icon: "clock", text: "Réponse sous 24 h" },
-      { icon: "send", text: "Recevoir un devis gratuit sous 24 h", pill: true },
+      { icon: "send", text: "Une mission ou une question sur un dépôt ?", pill: true },
     ],
   ],
   proofs: [
@@ -85,7 +85,7 @@ export const STACK = [
 
 export const CONTACT = {
   title: "Un projet, une mission ?",
-  text: "Premier appel de 30 minutes, gratuit et sans engagement. Réponse sous 24 h.",
+  text: "Écrivez-moi, je réponds sous 24 h.",
   button: "Prendre contact",
   email: "contact@teebostudio.fr",
   href: `${SITE}/#contact`,
