@@ -26,7 +26,7 @@ export const HERO = {
   proofs: [
     { label: "Sites clients livrés", value: "2" },
     { label: "Clients payants · BeeDirectory", value: "7+" },
-    { label: "Délai de réponse", value: "24 h" },
+    { label: "Dépôts publics", value: (github) => String(github.publicRepos) },
   ],
   online: ["Les Clefs du Crédit", "Cabinet Delcros", "BeeDirectory"],
 };
@@ -43,9 +43,9 @@ export const SOCIALS = [
 export const INTRO = {
   title: "Bonjour",
   bullets: [
-    [{ text: "Je suis " }, { text: "Thibault Leture", strong: true }, { text: ", développeur web freelance depuis plus de 3 ans : vous travaillez avec la personne qui écrit le code." }],
-    [{ text: "J’accompagne les TPE et PME de Bordeaux et de Gironde en rendez-vous, et partout en France à distance." }],
-    [{ text: "Spécialisé en Next.js et React, avec l’IA " }, { text: "Claude", strong: true, link: true }, { text: " intégrée quand elle fait gagner du temps. Le code, le domaine et les comptes sont à votre nom." }],
+    [{ text: "Je suis " }, { text: "Thibault Leture", strong: true }, { text: ", développeur full-stack, freelance depuis plus de 3 ans." }],
+    [{ text: "Je développe des applications web en TypeScript, de la base de données à la mise en production : comptes utilisateurs, paiements, tableaux de bord, e-mails, intégrations d’IA." }],
+    [{ text: "Next.js et React au quotidien, avec " }, { text: "Claude", strong: true, link: true }, { text: " intégré quand il fait gagner du temps. Basé à Bordeaux, sous le nom de TeeboStudio." }],
   ],
 };
 

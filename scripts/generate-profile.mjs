@@ -43,6 +43,7 @@ async function fetchContributions() {
     body: JSON.stringify({
       query: `query ($login: String!) {
         user(login: $login) {
+          repositories(privacy: PUBLIC, ownerAffiliations: OWNER) { totalCount }
           contributionsCollection {
             contributionCalendar {
               totalContributions
@@ -59,7 +60,7 @@ async function fetchContributions() {
 
   const calendar = json.data.user.contributionsCollection.contributionCalendar;
   const days = calendar.weeks.flatMap((week) => week.contributionDays).map((day) => ({ date: day.date, count: day.contributionCount }));
-  return { total: calendar.totalContributions, days, first: days[0].date, last: days.at(-1).date };
+  return { total: calendar.totalContributions, days, first: days[0].date, last: days.at(-1).date, publicRepos: json.data.user.repositories.totalCount };
 }
 
 const readBase64 = async (path) => (await readFile(new URL(path, import.meta.url))).toString("base64");
