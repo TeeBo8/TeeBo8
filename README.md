@@ -21,7 +21,7 @@
 <!-- chiffres:debut -->
 | Sur 12 mois | |
 |---|--:|
-| Contributions | **1 829** |
+| Contributions | **1 832** |
 | Jours actifs | **183** |
 | Série en cours | **15 jours** |
 | Plus longue série | **18 jours** |
