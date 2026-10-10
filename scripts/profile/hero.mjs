@@ -149,7 +149,7 @@ export async function renderHero(theme, { avatar, snake, contributions }) {
   const HEIGHT = PROOFS_Y + PROOFS_H;
   const proofCells = proofBoxes.map(
     ({ proof, x, width }) =>
-      `${fieldLabel(proof.label, x + 24, PROOFS_Y + 28)}${doc.text(proof.value, { x: x + 24, y: PROOFS_Y + 54, font: "mono", weight: 500, size: 18 })}<line x1="${x + width + 0.5}" y1="${PROOFS_Y}" x2="${x + width + 0.5}" y2="${HEIGHT}" stroke="${theme.line}"/>`,
+      `${fieldLabel(proof.label, x + 24, PROOFS_Y + 28)}${doc.text(typeof proof.value === "function" ? proof.value(contributions) : proof.value, { x: x + 24, y: PROOFS_Y + 54, font: "mono", weight: 500, size: 18 })}<line x1="${x + width + 0.5}" y1="${PROOFS_Y}" x2="${x + width + 0.5}" y2="${HEIGHT}" stroke="${theme.line}"/>`,
   );
 
   const body = `

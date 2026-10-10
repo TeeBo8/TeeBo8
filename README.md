@@ -13,7 +13,7 @@
 </p>
 
 <p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/intro-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/intro.svg" width="100%" alt="Bonjour. Je suis Thibault Leture, développeur web freelance depuis plus de 3 ans : vous travaillez avec la personne qui écrit le code."/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/intro-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/intro.svg" width="100%" alt="Bonjour. Je suis Thibault Leture, développeur full-stack, freelance depuis plus de 3 ans. Je développe des applications web en TypeScript, de la base de données à la mise en production."/></picture>
 </p>
 
 <p>
