@@ -1,10 +1,11 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8f3d22,100:d97757&height=170&section=header&text=Thibault%20Leture&fontSize=46&fontColor=faf9f5&animation=fadeIn&fontAlignY=36&desc=TeeboStudio%20%C2%B7%20D%C3%A9veloppeur%20full-stack%20%C3%A0%20Bordeaux&descSize=18&descAlignY=58&descAlign=50" width="100%" alt="Thibault Leture — TeeboStudio, développeur full-stack à Bordeaux"/>
+<a href="https://teebostudio.fr">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/header-dark.svg"/>
+    <img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/header.svg" width="100%" alt="Thibault Leture, fondateur de TeeboStudio : développeur web freelance à Bordeaux. Sites, applications web et intégration de l’IA."/>
+  </picture>
+</a>
 
 <div align="center">
-
-<img src="https://readme-typing-svg.demolab.com?font=Geist+Mono&weight=500&size=20&duration=2800&pause=900&color=D97757&center=true&vCenter=true&width=640&height=40&lines=Sites+et+applications+web+sur-mesure;Next.js+%C2%B7+tRPC+%C2%B7+Drizzle+%C2%B7+PostgreSQL;Paiements+Stripe%2C+IA+Claude%2C+e-mails+Resend;Du+code+test%C3%A9%2C+relu+et+mis+en+production" alt="Sites et applications web sur-mesure · Next.js, tRPC, Drizzle, PostgreSQL · paiements Stripe, IA Claude, e-mails Resend"/>
-
-<br/>
 
 <a href="https://teebostudio.fr"><img src="https://img.shields.io/badge/teebostudio.fr-b65331?style=for-the-badge&logo=vercel&logoColor=white" alt="teebostudio.fr"/></a>
 <a href="https://www.linkedin.com/in/thibault-leture-5740242a1/"><img src="https://img.shields.io/badge/LinkedIn-0d1117?style=for-the-badge&logo=linkedin&logoColor=d97757" alt="LinkedIn"/></a>
@@ -16,7 +17,7 @@
 
 <br/>
 
-Je suis Thibault, développeur full-stack TypeScript à Bordeaux. Sous le nom de [TeeboStudio](https://teebostudio.fr), je crée des sites et des applications web pour les indépendants et les PME, de la base de données à la mise en production : comptes utilisateurs, paiements, tableaux de bord, e-mails, intégrations d'IA.
+Avec [TeeboStudio](https://teebostudio.fr), je crée des sites et des applications web pour les indépendants et les PME, de la base de données à la mise en production : comptes utilisateurs, paiements, tableaux de bord, e-mails, intégrations d'IA.
 
 ## TeeboStudio
 
@@ -127,4 +128,3 @@ Un projet, une mission ou une question sur un de ces dépôts ?<br/>
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8f3d22,100:d97757&height=110&section=footer" width="100%" alt=""/>

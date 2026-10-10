@@ -1,7 +1,7 @@
 name: Images du profil
 
 # Régénère chaque jour les images affichées dans le README du profil
-# (cartes de statistiques et animation du calendrier de contributions)
+# (entête, cartes de statistiques et animation du calendrier de contributions)
 # et les publie sur la branche « output ».
 on:
   schedule:
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [".github/workflows/snake.yml", "scripts/**"]
+    paths: [".github/workflows/snake.yml", "scripts/**", "assets/**"]
 
 permissions:
   contents: write
@@ -27,6 +27,8 @@ jobs:
         run: node scripts/generate-cards.mjs ${{ github.repository_owner }} dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Entête du profil
+        run: node scripts/generate-header.mjs dist
       - uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
