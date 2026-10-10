@@ -1,15 +1,15 @@
 name: Images du profil
 
-# Régénère chaque jour les images affichées dans le README du profil
-# (cartes de statistiques et animation du calendrier de contributions)
-# et les publie sur la branche « output ».
+# Régénère chaque jour les images du README du profil (design de teebostudio.fr,
+# versions claire et sombre) et les publie sur la branche « output ».
+# Le serpent est produit d'abord : scripts/generate-profile.mjs l'intègre à l'entête.
 on:
   schedule:
     - cron: "0 5 * * *"
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [".github/workflows/snake.yml", "scripts/**"]
+    paths: [".github/workflows/snake.yml", "scripts/**", "assets/**"]
 
 permissions:
   contents: write
@@ -23,16 +23,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Cartes de statistiques
-        run: node scripts/generate-cards.mjs ${{ github.repository_owner }} dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
+          # Couleurs remplacées par celles du site dans generate-profile.mjs
           outputs: |
-            dist/github-snake.svg?color_snake=#047857&color_dots=#ebedf0,#a7f3d0,#34d399,#10b981,#047857
-            dist/github-snake-dark.svg?color_snake=#f6eedd&color_dots=#161b22,#065f46,#059669,#10b981,#6ee7b7
+            dist/github-snake.svg
+            dist/github-snake-dark.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Images du profil
+        run: node scripts/generate-profile.mjs ${{ github.repository_owner }} dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: crazy-max/ghaction-github-pages@v4
