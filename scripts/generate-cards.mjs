@@ -25,7 +25,7 @@ const THEMES = {
     ink: "#1f2328",
     muted: "#59636e",
     grid: "#eaeef2",
-    accent: "#047857",
+    accent: "#b65331",
   },
   dark: {
     surface: "#0d1117",
@@ -33,7 +33,7 @@ const THEMES = {
     ink: "#f0f6fc",
     muted: "#9198a1",
     grid: "#21262d",
-    accent: "#0ea371",
+    accent: "#d97757",
   },
 };
 
