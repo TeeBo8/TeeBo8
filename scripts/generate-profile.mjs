@@ -1,42 +1,31 @@
-// Génère toutes les images du README de profil, aux couleurs et au design de teebostudio.fr,
-// en version claire et sombre (fichier.svg et fichier-dark.svg).
+// Génère les images du README de profil au design de teebostudio.fr (bannière, courbe des 30 derniers
+// jours, calendrier avec le serpent) et met à jour le tableau des chiffres dans le README.
 //
 // Les chiffres viennent de l'API GraphQL de GitHub (calendrier de contributions, dépôts privés compris).
-// Le serpent est produit juste avant par Platane/snk dans le même dossier, puis intégré à l'entête.
-// Le workflow lance ce script chaque jour et publie le dossier sur la branche « output ».
+// Le serpent est produit juste avant par Platane/snk dans le même dossier, puis recoloré.
+// Le workflow lance ce script chaque jour, publie le dossier sur la branche « output »
+// et enregistre le README s'il a changé.
 //
 // Usage : GITHUB_TOKEN=... node scripts/generate-profile.mjs [login] [dossier]
 
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { PROJECTS, SOCIALS } from "./profile/content.mjs";
-import { renderHero } from "./profile/hero.mjs";
-import { loadMetrics, THEMES } from "./profile/kit.mjs";
-import {
-  PORTFOLIO,
-  renderCode,
-  renderContact,
-  renderIntro,
-  renderLinkStrip,
-  renderProject,
-  renderSocial,
-  renderStack,
-  renderTestimonials,
-  renderTitle,
-} from "./profile/sections.mjs";
-import { renderStats } from "./profile/stats.mjs";
+import { renderBanner } from "./profile/banner.mjs";
+import { THEME } from "./profile/kit.mjs";
+import { renderChart, renderSnake, statsTable } from "./profile/stats.mjs";
 
 const login = process.argv[2] ?? "TeeBo8";
 const outDir = process.argv[3] ?? "dist";
 const token = process.env.GITHUB_TOKEN;
+const README = new URL("../README.md", import.meta.url);
 
 if (!token) {
   console.error("GITHUB_TOKEN manquant");
   process.exit(1);
 }
 
-async function fetchContributions() {
+async function fetchGitHub() {
   const response = await fetch("https://api.github.com/graphql", {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "User-Agent": "profile-images" },
@@ -58,44 +47,29 @@ async function fetchContributions() {
   const json = await response.json();
   if (!response.ok || json.errors) throw new Error(`API GitHub : ${JSON.stringify(json.errors ?? json)}`);
 
-  const calendar = json.data.user.contributionsCollection.contributionCalendar;
+  const { repositories, contributionsCollection } = json.data.user;
+  const calendar = contributionsCollection.contributionCalendar;
   const days = calendar.weeks.flatMap((week) => week.contributionDays).map((day) => ({ date: day.date, count: day.contributionCount }));
-  return { total: calendar.totalContributions, days, first: days[0].date, last: days.at(-1).date, publicRepos: json.data.user.repositories.totalCount };
+  return { total: calendar.totalContributions, days, publicRepos: repositories.totalCount };
 }
 
-const readBase64 = async (path) => (await readFile(new URL(path, import.meta.url))).toString("base64");
-
-const [contributions, avatar, , snakeLight, snakeDark] = await Promise.all([
-  fetchContributions(),
-  readBase64("../assets/avatar.png"),
-  loadMetrics(),
-  readFile(join(outDir, "github-snake.svg"), "utf8"),
+const [github, avatar, snake] = await Promise.all([
+  fetchGitHub(),
+  readFile(new URL("../assets/avatar.png", import.meta.url)).then((buffer) => buffer.toString("base64")),
   readFile(join(outDir, "github-snake-dark.svg"), "utf8"),
 ]);
-const clientIcons = Object.fromEntries(
-  await Promise.all(
-    (await readdir(new URL("../assets/clients/", import.meta.url))).map(async (file) => [file, await readBase64(`../assets/clients/${file}`)]),
-  ),
-);
-
-// Nom du fichier → rendu pour un thème
-const IMAGES = {
-  hero: (theme) => renderHero(theme, { avatar, snake: theme.name === "dark" ? snakeDark : snakeLight, contributions }),
-  ...Object.fromEntries(SOCIALS.map((social) => [social.file, (theme) => renderSocial(theme, social)])),
-  intro: renderIntro,
-  chiffres: (theme) => renderStats(theme, contributions),
-  temoignages: (theme) => renderTestimonials(theme, clientIcons),
-  "titre-realisations": (theme) => renderTitle(theme, { title: "Réalisations", aside: "teebostudio.fr/portfolio" }),
-  ...Object.fromEntries(PROJECTS.map((project, index) => [project.file, (theme) => renderProject(theme, project, index)])),
-  portfolio: (theme) => renderLinkStrip(theme, PORTFOLIO),
-  code: renderCode,
-  stack: renderStack,
-  contact: renderContact,
-};
 
 await mkdir(outDir, { recursive: true });
-for (const [name, render] of Object.entries(IMAGES)) {
-  await writeFile(join(outDir, `${name}.svg`), await render(THEMES.light));
-  await writeFile(join(outDir, `${name}-dark.svg`), await render(THEMES.dark));
-}
-console.log(`${Object.keys(IMAGES).length * 2} images générées pour ${login} (${contributions.total} contributions)`);
+await writeFile(join(outDir, "banniere.svg"), await renderBanner(THEME, { avatar }));
+await writeFile(join(outDir, "courbe.svg"), await renderChart(THEME, github));
+await writeFile(join(outDir, "serpent.svg"), await renderSnake(THEME, snake));
+
+// Tableau des chiffres : remplacé entre les deux balises du README
+const readme = await readFile(README, "utf8");
+if (!readme.includes("<!-- chiffres:debut -->")) throw new Error("Balises « chiffres » absentes du README");
+await writeFile(
+  README,
+  readme.replace(/(<!-- chiffres:debut -->)[\s\S]*?(<!-- chiffres:fin -->)/, (_, start, end) => `${start}\n${statsTable(github)}\n${end}`),
+);
+
+console.log(`Images et chiffres à jour pour ${login} : ${github.total} contributions, ${github.publicRepos} dépôts publics`);
