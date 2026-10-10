@@ -2,7 +2,7 @@
 // Mises en page adaptées de chanhdai.com — Copyright (c) 2026 Chánh Đại, licence MIT.
 
 import { blend, createDoc, measure } from "./kit.mjs";
-import { AUDIT, CODE, CONTACT, INTRO, PORTFOLIO, PROCESS, STACK, TESTIMONIALS } from "./content.mjs";
+import { CODE, CONTACT, INTRO, PORTFOLIO, STACK, TESTIMONIALS } from "./content.mjs";
 
 const W = 1024;
 // Les cartes vont par deux sur une ligne du README (width="50%", collées) : chaque image fait la moitié
@@ -36,7 +36,7 @@ export async function renderTitle(theme, { title, aside }) {
   return doc.render({ width: W, height, title, body: `${doc.heading(title, { y: 52 })}${right}` });
 }
 
-// Ligne de lien centrée (« Pas sûr de ce qu'il vous faut ? … »)
+// Ligne de lien centrée (« Les études de cas détaillées : … »)
 export async function renderLinkStrip(theme, { text, link }) {
   const doc = createDoc(theme);
   const height = 52;
@@ -91,42 +91,7 @@ export const renderCode = (theme) =>
     label: `${CODE.title} : ${CODE.bullets.map(([lead, rest]) => lead + rest).join(" ")}`,
   });
 
-// ---------- Cartes (expertises et réalisations) ----------
-
-function cardDecor(doc, decor, width, height) {
-  const { theme } = doc;
-  if (decor === "mesh") {
-    // Fond génératif de la carte « Sites web » (public/expertise-mesh.svg du site), estompé vers le bas à gauche
-    return `<defs>
-  <filter id="mesh" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
-    <feTurbulence type="fractalNoise" baseFrequency="0.0035 0.0055" numOctaves="2" seed="11"/>
-    <feColorMatrix values="1 1 1 0 -1  1 1 1 0 -1  1 1 1 0 -1  0 0 0 0 1"/>
-    <feComponentTransfer>
-      <feFuncR type="discrete" tableValues="0.725 0.663 0.851 0.910 0.953 0.851"/>
-      <feFuncG type="discrete" tableValues="0.675 0.310 0.467 0.627 0.851 0.467"/>
-      <feFuncB type="discrete" tableValues="0.604 0.188 0.341 0.498 0.769 0.341"/>
-    </feComponentTransfer>
-    <feGaussianBlur stdDeviation="14"/>
-  </filter>
-  <linearGradient id="fade" x1="0" y1="1" x2="1" y2="0"><stop offset="0.05" stop-color="#fff" stop-opacity="0"/><stop offset="0.75" stop-color="#fff"/></linearGradient>
-  <mask id="fade-mask"><rect width="${width}" height="${height}" fill="url(#fade)"/></mask>
-</defs>
-<g mask="url(#fade-mask)" opacity="0.25"><svg width="${width}" height="${height}" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice"><rect width="800" height="450" filter="url(#mesh)"/></svg></g>`;
-  }
-  if (decor === "dots") {
-    // Trame de points terracotta, qui s'estompe vers le texte en bas à gauche
-    return `<defs>
-  <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="${blend(theme.primary, theme.bg, 0.55)}"/></pattern>
-  <linearGradient id="fade" x1="0" y1="0.29" x2="1" y2="0.71"><stop offset="0.4" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/></linearGradient>
-  <mask id="fade-mask"><rect width="${width}" height="${height}" fill="url(#fade)"/></mask>
-</defs>
-<rect width="${width}" height="${height}" fill="url(#dots)" mask="url(#fade-mask)"/>`;
-  }
-  return "";
-}
-
-// Pastille calée à droite : elle est dessinée en x = 0, puis décalée de sa propre largeur
-const alignRight = (chip, right) => `<g transform="translate(${(right - chip.width).toFixed(2)} 0)">${chip.svg}</g>`;
+// ---------- Cartes des réalisations ----------
 
 function chipsRow(doc, labels, { x, y, maxX, highlight }) {
   let cursor = x;
@@ -144,30 +109,6 @@ function chipsRow(doc, labels, { x, y, maxX, highlight }) {
     cursor += chip.width + 6;
   }
   return out.join("");
-}
-
-export async function renderExpertise(theme, expertise, index) {
-  const doc = createDoc(theme);
-  const height = 330;
-  const iconSize = 36;
-  const titleY = expertise.note ? height - 88 : height - 62;
-  const metaY = titleY + 30;
-  const titleW = measure(expertise.name, { size: 34, weight: 500, spacing: -0.85 });
-  const note = expertise.note
-    ? `${doc.icon("claude", { x: 32, y: metaY + 13, size: 13, color: "#D97757" })}${doc.text(expertise.note, { x: 51, y: metaY + 24, font: "mono", size: 13, fill: theme.fg })}${alignRight(doc.chip(expertise.badge, { x: 0, y: metaY + 9, fill: theme.primary, color: theme.primaryFg }), CARD_W - 32)}`
-    : "";
-  return doc.render({
-    width: CARD_W,
-    height,
-    inset: cardInset(index),
-    title: `${expertise.name} : ${expertise.tags.join(", ")}. ${expertise.price}, ${expertise.delay}.`,
-    body: `${cardDecor(doc, expertise.decor, CARD_W, height)}
-${chipsRow(doc, expertise.tags, { x: 32, y: 32, maxX: CARD_W - 32 - iconSize - 12 })}
-<rect x="${CARD_W - 32 - iconSize + 0.5}" y="28.5" width="${iconSize - 1}" height="${iconSize - 1}" rx="8" fill="${theme.bg}" stroke="${theme.border}"/>${doc.icon(expertise.icon, { x: CARD_W - 32 - iconSize + 9, y: 37, size: 18, color: theme.fg, strokeWidth: 1.75 })}
-${doc.text(expertise.name, { x: 32, y: titleY, size: 34, weight: 500, spacing: -0.85 })}${doc.icon("arrowUpRight", { x: 32 + titleW + 8, y: titleY - 18, size: 18, color: theme.fg })}
-${doc.paragraph([{ text: expertise.price, weight: 500, fill: theme.fg }, { text: ` · ${expertise.delay}`, fill: theme.mutedFg }], { x: 32, y: metaY, width: 400, font: "mono", size: 13 }).svg}
-${note}`,
-  });
 }
 
 export async function renderProject(theme, project, index) {
@@ -229,63 +170,6 @@ ${footer(doc, t, x + 68, footY, cardW - 68 - 20)}`;
   });
 }
 
-// ---------- Méthode : quatre étapes, un cube de plus à chaque fois ----------
-
-const CUBE = 18;
-const cubePoint = (x, y, z) => `${(x - y) * CUBE},${((x + y) * CUBE) / 2 - z * CUBE}`;
-
-function cubeFigure(theme, cubes, x, y, size) {
-  const sorted = [...cubes].sort((a, b) => a[0] + a[1] + a[2] - (b[0] + b[1] + b[2]));
-  const faces = sorted.map(([cx, cy, cz], index) => {
-    const top = [cubePoint(cx, cy, cz + 1), cubePoint(cx + 1, cy, cz + 1), cubePoint(cx + 1, cy + 1, cz + 1), cubePoint(cx, cy + 1, cz + 1)].join(" ");
-    const right = [cubePoint(cx + 1, cy, cz + 1), cubePoint(cx + 1, cy + 1, cz + 1), cubePoint(cx + 1, cy + 1, cz), cubePoint(cx + 1, cy, cz)].join(" ");
-    const left = [cubePoint(cx, cy + 1, cz + 1), cubePoint(cx + 1, cy + 1, cz + 1), cubePoint(cx + 1, cy + 1, cz), cubePoint(cx, cy + 1, cz)].join(" ");
-    const last = index === sorted.length - 1;
-    return `<polygon points="${top}"${last ? ` fill="${blend(theme.primary, theme.bg, 0.25)}" stroke="${theme.primary}"` : ""}/><polygon points="${right}"/><polygon points="${left}"/>`;
-  });
-  return `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="-40 -42 80 84" fill="${theme.bg}" stroke="${theme.mutedFg}" stroke-width="1" stroke-dasharray="1.5 2.5" stroke-linejoin="round">${faces.join("")}</svg>`;
-}
-
-export async function renderProcess(theme) {
-  const doc = createDoc(theme);
-  const headerH = 80;
-  const cellW = W / 2;
-  const figure = 96;
-  const textX = 32 + figure + 24;
-  const textW = cellW - textX - 32;
-  const texts = PROCESS.steps.map((step) => doc.paragraph(step.text, { x: 0, y: 0, width: textW, size: 14, lineHeight: 22 }));
-  const cellH = 32 * 2 + Math.max(figure, 16 + 8 + 24 + 8 + Math.max(...texts.map((t) => t.height)));
-  const gridBottom = headerH + cellH * 2;
-  const height = gridBottom + 56;
-  const cells = PROCESS.steps.map((step, i) => {
-    const x = (i % 2) * cellW;
-    const y = headerH + Math.floor(i / 2) * cellH;
-    const blockH = 16 + 8 + 24 + 8 + texts[i].height;
-    const top = y + (cellH - blockH) / 2;
-    return `${cubeFigure(theme, step.cubes, x + 32, y + (cellH - figure) / 2, figure)}
-${doc.text(String(i + 1).padStart(2, "0"), { x: x + textX, y: top + 12, font: "mono", size: 12, fill: theme.mutedFg, opacity: 0.8 })}
-${doc.text(step.title, { x: x + textX, y: top + 16 + 8 + 16, size: 18, weight: 500, spacing: -0.45 })}
-${doc.paragraph(step.text, { x: x + textX, y: top + 16 + 8 + 24 + 8 + 14, width: textW, size: 14, lineHeight: 22, fill: theme.mutedFg }).svg}`;
-  });
-  const firstW = measure(PROCESS.first, { size: 14 });
-  const bookW = measure(PROCESS.book, { size: 14, weight: 500 });
-  const ctaX = (W - firstW - 5 - bookW) / 2;
-  return doc.render({
-    width: W,
-    height,
-    title: `${PROCESS.title}. ${PROCESS.steps.map((s, i) => `${i + 1}. ${s.title} : ${s.text}`).join(" ")} ${PROCESS.first} ${PROCESS.book}.`,
-    body: `${doc.heading(PROCESS.title, { y: 52 })}
-<g stroke="${theme.line}">
-  <line x1="0" y1="${headerH + 0.5}" x2="${W}" y2="${headerH + 0.5}"/>
-  <line x1="0" y1="${headerH + cellH + 0.5}" x2="${W}" y2="${headerH + cellH + 0.5}" stroke-dasharray="4 4"/>
-  <line x1="${cellW + 0.5}" y1="${headerH}" x2="${cellW + 0.5}" y2="${gridBottom}" stroke-dasharray="4 4"/>
-  <line x1="0" y1="${gridBottom + 0.5}" x2="${W}" y2="${gridBottom + 0.5}"/>
-</g>
-${cells.join("\n")}
-${doc.text(PROCESS.first, { x: ctaX, y: gridBottom + 33, size: 14, fill: theme.mutedFg })}${doc.text(PROCESS.book, { x: ctaX + firstW + 5, y: gridBottom + 33, size: 14, weight: 500, fill: theme.primary })}`,
-  });
-}
-
 // ---------- Stack : les outils en lignes numérotées, par catégorie ----------
 
 export async function renderStack(theme) {
@@ -342,4 +226,4 @@ ${doc.icon("mail", { x: 24 + button.width + 24, y: 139, size: 14, color: theme.m
   });
 }
 
-export { AUDIT, PORTFOLIO };
+export { PORTFOLIO };

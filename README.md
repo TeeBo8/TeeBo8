@@ -17,19 +17,7 @@
 </p>
 
 <p>
-<a href="https://teebostudio.fr"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/titre-expertises-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/titre-expertises.svg" width="100%" alt="Expertises"/></picture></a>
-</p>
-
-<p>
-<a href="https://teebostudio.fr/creation-site-web"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/expertise-sites-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/expertise-sites.svg" width="50%" alt="Sites web : Dès 300 €, 2 à 14 jours"/></picture></a><a href="https://teebostudio.fr/saas"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/expertise-applications-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/expertise-applications.svg" width="50%" alt="Applications web : Dès 2 990 €, Selon projet"/></picture></a>
-</p>
-
-<p>
-<a href="https://teebostudio.fr/video-motion-design"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/expertise-identite-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/expertise-identite.svg" width="50%" alt="Identité & vidéo : Dès 290 €, Dès 3 jours"/></picture></a><a href="https://teebostudio.fr/integration-ia"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/expertise-ia-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/expertise-ia.svg" width="50%" alt="Intégration IA : Dès 490 €, 3 jours à 2 semaines"/></picture></a>
-</p>
-
-<p>
-<a href="https://teebostudio.fr/audit-gratuit"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/audit-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/audit.svg" width="100%" alt="Pas sûr de ce qu’il vous faut ? Commencez par l’audit gratuit de votre site"/></picture></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/chiffres-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/chiffres.svg" width="100%" alt="En chiffres : contributions, jours actifs et séries sur 12 mois, contributions par jour sur les 30 derniers jours"/></picture>
 </p>
 
 <p>
@@ -45,23 +33,7 @@
 </p>
 
 <p>
-<a href="https://bee-directory.com"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-beedirectory-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-beedirectory.svg" width="50%" alt="BeeDirectory : Annuaire de newsletters pour trouver où sponsoriser. Clients payants."/></picture></a><a href="https://github.com/TeeBo8/NeuroBlend-Marketplace"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-neuroblend-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-neuroblend.svg" width="50%" alt="NeuroBlend : Trois rôles (client, vendeur, admin), paiements répartis par Stripe Connect, démo en un clic."/></picture></a>
-</p>
-
-<p>
-<a href="https://github.com/TeeBo8/nopaynodate"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-nopaynodate-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-nopaynodate.svg" width="50%" alt="NoPayNoDate : Dépôt bloqué puis versé ou remboursé par Stripe Connect, chat en temps réel, démo en un clic."/></picture></a><a href="https://github.com/TeeBo8/conforme"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-conformefr-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-conformefr.svg" width="50%" alt="ConformeFR : Mentions légales où la loi reste du code testé et où le modèle de langage ne fait qu’expliquer."/></picture></a>
-</p>
-
-<p>
-<a href="https://teebostudio.fr"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-teebostudio-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-teebostudio.svg" width="50%" alt="TeeboStudio : Audit de site gratuit rédigé par IA et assistant Claude, en français et en anglais."/></picture></a><a href="https://github.com/TeeBo8/teebostudio-video"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-video-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/projet-video.svg" width="50%" alt="La vidéo TeeboStudio : Une vidéo écrite en React : une composition, trois formats, deux thèmes, rendue par GitHub Actions."/></picture></a>
-</p>
-
-<p>
 <a href="https://teebostudio.fr/portfolio"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/portfolio-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/portfolio.svg" width="100%" alt="Les études de cas détaillées : teebostudio.fr/portfolio"/></picture></a>
-</p>
-
-<p>
-<a href="https://cal.com/thibault-wvmzrm/30min"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/methode-dark.svg"/><img src="https://raw.githubusercontent.com/TeeBo8/TeeBo8/output/methode.svg" width="100%" alt="Comment ça se passe : appel de 30 minutes, devis à prix fixe, conception et développement, mise en ligne et prise en main"/></picture></a>
 </p>
 
 <p>

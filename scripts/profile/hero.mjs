@@ -94,7 +94,6 @@ function overviewItem(doc, item, x, y) {
 }
 
 const dateFormatter = new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium", timeZone: "UTC" });
-const numberFormatter = new Intl.NumberFormat("fr-FR");
 const formatDate = (iso) => dateFormatter.format(new Date(`${iso}T00:00:00Z`));
 
 // Le serpent (généré par Platane/snk) est intégré dans la figure, recoloré aux couleurs du thème :
@@ -123,10 +122,10 @@ export async function renderHero(theme, { avatar, snake, contributions }) {
   const CAPTION_Y = FIG_Y + SNAKE_H + 18;
   const PROOFS_Y = CAPTION_Y + 26;
 
-  const { total, first, last, activeDays } = contributions;
+  const { first, last } = contributions;
   const caption = [
     { text: "Fig. 2. ", font: "sans" },
-    { text: `${numberFormatter.format(total)} contributions et ${activeDays} jours actifs, du ${formatDate(first)} au ${formatDate(last)}.` },
+    { text: `Contributions du ${formatDate(first)} au ${formatDate(last)}, dépôts privés compris. Source : GitHub.` },
   ];
   const captionX = (W - SNAKE_W) / 2;
   const levels = levelColors(theme);

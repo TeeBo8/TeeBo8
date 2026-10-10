@@ -10,24 +10,22 @@
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { EXPERTISES, PROJECTS, SOCIALS } from "./profile/content.mjs";
+import { PROJECTS, SOCIALS } from "./profile/content.mjs";
 import { renderHero } from "./profile/hero.mjs";
 import { loadMetrics, THEMES } from "./profile/kit.mjs";
 import {
-  AUDIT,
   PORTFOLIO,
   renderCode,
   renderContact,
-  renderExpertise,
   renderIntro,
   renderLinkStrip,
-  renderProcess,
   renderProject,
   renderSocial,
   renderStack,
   renderTestimonials,
   renderTitle,
 } from "./profile/sections.mjs";
+import { renderStats } from "./profile/stats.mjs";
 
 const login = process.argv[2] ?? "TeeBo8";
 const outDir = process.argv[3] ?? "dist";
@@ -60,13 +58,8 @@ async function fetchContributions() {
   if (!response.ok || json.errors) throw new Error(`API GitHub : ${JSON.stringify(json.errors ?? json)}`);
 
   const calendar = json.data.user.contributionsCollection.contributionCalendar;
-  const days = calendar.weeks.flatMap((week) => week.contributionDays);
-  return {
-    total: calendar.totalContributions,
-    first: days[0].date,
-    last: days.at(-1).date,
-    activeDays: days.filter((day) => day.contributionCount > 0).length,
-  };
+  const days = calendar.weeks.flatMap((week) => week.contributionDays).map((day) => ({ date: day.date, count: day.contributionCount }));
+  return { total: calendar.totalContributions, days, first: days[0].date, last: days.at(-1).date };
 }
 
 const readBase64 = async (path) => (await readFile(new URL(path, import.meta.url))).toString("base64");
@@ -89,14 +82,11 @@ const IMAGES = {
   hero: (theme) => renderHero(theme, { avatar, snake: theme.name === "dark" ? snakeDark : snakeLight, contributions }),
   ...Object.fromEntries(SOCIALS.map((social) => [social.file, (theme) => renderSocial(theme, social)])),
   intro: renderIntro,
-  "titre-expertises": (theme) => renderTitle(theme, { title: "Expertises", aside: "teebostudio.fr" }),
-  ...Object.fromEntries(EXPERTISES.map((expertise, index) => [expertise.file, (theme) => renderExpertise(theme, expertise, index)])),
-  audit: (theme) => renderLinkStrip(theme, AUDIT),
+  chiffres: (theme) => renderStats(theme, contributions),
   temoignages: (theme) => renderTestimonials(theme, clientIcons),
   "titre-realisations": (theme) => renderTitle(theme, { title: "Réalisations", aside: "teebostudio.fr/portfolio" }),
   ...Object.fromEntries(PROJECTS.map((project, index) => [project.file, (theme) => renderProject(theme, project, index)])),
   portfolio: (theme) => renderLinkStrip(theme, PORTFOLIO),
-  methode: renderProcess,
   code: renderCode,
   stack: renderStack,
   contact: renderContact,
