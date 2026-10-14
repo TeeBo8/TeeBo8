@@ -21,6 +21,7 @@ Portfolio : [teebostudio.fr](https://teebostudio.fr)
 - **[NeuroBlend](https://github.com/TeeBo8/NeuroBlend-Marketplace)** — Place de marché multi-vendeurs : trois rôles, paiements répartis par Stripe Connect ([démo](https://neuroblend-demo.teebostudio.fr)).
 - **[NoPayNoDate](https://github.com/TeeBo8/nopaynodate)** — Dépôt bloqué puis versé ou remboursé par Stripe Connect, chat en temps réel ([démo](https://nopaynodate.teebostudio.fr)).
 - **[teebostudio-video](https://github.com/TeeBo8/teebostudio-video)** — Vidéo motion écrite en React : une composition, trois formats, rendue par GitHub Actions.
+- **[Astro Blaster](https://github.com/TeeBo8/astro-blaster)** — Shoot'em up néon en Python : graphismes, sons et musique générés par le code, boss en trois phases.
 
 [teebostudio.fr](https://teebostudio.fr) est construit avec :
 
