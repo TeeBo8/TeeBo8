@@ -21,6 +21,7 @@ Portfolio : [teebostudio.fr](https://teebostudio.fr)
 - **[NeuroBlend](https://github.com/TeeBo8/NeuroBlend-Marketplace)** — Place de marché multi-vendeurs : trois rôles, paiements répartis par Stripe Connect ([démo](https://neuroblend-demo.teebostudio.fr)).
 - **[NoPayNoDate](https://github.com/TeeBo8/nopaynodate)** — Dépôt bloqué puis versé ou remboursé par Stripe Connect, chat en temps réel ([démo](https://nopaynodate.teebostudio.fr)).
 - **[Astro Blaster](https://github.com/TeeBo8/astro-blaster)** — Shoot'em up néon en Python : graphismes, sons et musique générés par le code, boss en trois phases.
+- **[Neon Maze](https://github.com/TeeBo8/neon-maze)** — Labyrinthe 3D façon Wolfenstein rendu dans le terminal en couleurs 24 bits : du C99 en un seul fichier, sans aucune dépendance.
 
 [teebostudio.fr](https://teebostudio.fr) est construit avec :
 
